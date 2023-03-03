@@ -62,32 +62,43 @@ var cumleler = [
 		function foo(degisken=false){
 		return degisken;
 		}
-		Yukarıdaki fonksiyonu foo("deneme") olarak çağırabiliriz, bu fonksiyon "deneme" stringini döndürecektir. Aynı fonksiyonu foo(); şeklinde de çağırabiliriz. Bu durumda parametre olarak bir şey göndermediğimiz için fonksiyon içindeki degisken değişkenine false değeri atanacaktır. Bu durumda foo(); fonksiyonunu çalıştırdığımız false döndürür.
+		Yukarıdaki fonksiyonu foo("deneme") olarak çağırabiliriz, bu fonksiyon "deneme" stringini döndürecektir. 
+		Aynı fonksiyonu foo(); şeklinde de çağırabiliriz. Bu durumda parametre olarak bir şey göndermediğimiz için fonksiyon içindeki degisken değişkenine false değeri atanacaktır. Bu durumda foo(); fonksiyonunu çalıştırdığımız false döndürür.
 		)
 		3. Alınan 5 string uc uca eklenerek bir stringe dönüştürülecektir.
 		4. Fonksiyon, oluşturulan stringi döndürecektir. 
 	*/
 
 // ÖRNEĞİN ÇÖZÜMÜ:
-function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
-	return birinci+ikinci+ucuncu+dorduncu+besinci;
+ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
+ 	return birinci+ikinci+ucuncu+dorduncu+besinci;
 }
 
-/* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
+/* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin,
+ sonucu konsolde gözlemleyin */
+/*function cumleKur() {
+	
+}*/
+	console.log(cumleKur("Hello World!"));
+
 
 
 
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
+//  function cumleKur(){
 
-
+//  }
+console.log(cumleKur("Hello", "World!"));
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
+
 var bircumle;
-
 /* kodlar buraya */
-
+bircumle = cumleKur("Ben", " iyi ", "bir ", "yazılımcı ", "olacağım!") 
+	 
+console.log(bircumle);
 
 
 //		Sayfanın en üstünde global olarak tanımlanmış `cumleler` adında bir dizi bulunmaktadır. Bu dizinin içinde en çok 5 en az 1 adet string bulunan diziler bulunmaktadır. Aşağıdaki görevlerde aksi belirtilmedikçe bu dizi kullanılacaktır.
@@ -95,7 +106,8 @@ var bircumle;
 /* 	GÖREV 1:
 		cumlelereDonustur fonksiyonuna aşağıdaki yönergeleri uygulayın.
 			1. `cumleler` adındaki dizi fonksiyonun BİRİNCİ parametresi olarak alınacak.
-			2. Kelime aralarındaki ayraç(seperator) olarak kullanılmak üzere bir string değişkeni fonksiyonun İKİNCİ parametresi olarak alınacak. Ayraç parametresine "," değerini ön tanımlı yapmanız beklenmektedir.
+			2. Kelime aralarındaki ayraç(seperator) olarak kullanılmak üzere bir string değişkeni fonksiyonun İKİNCİ parametresi olarak alınacak.
+			 Ayraç parametresine "," değerini ön tanımlı yapmanız beklenmektedir.
 			3. Dizinin içindeki her dizi elemanı 1 cümle oluşturacak şekilde uc uca eklenecek, kelimelerin aralarına 3. parametrede girilen ayraç yerleştirilecek;
 				NOT: cumlelereDonustur(cumleler, " ") fonksiyonu çağırıldığında şu dizinin oluşturacağı cümle: ["Annem","ekmek","almak","için","gitti."] => "Annem ekmek almak için gitti." şeklinde olmalıdır. 
 				💡 İPUCU: Bu çalışmada cümleleri kolay oluşturmak için .map ve .join metodunu bir arada kullanmanız gerekmektedir. 
@@ -104,12 +116,13 @@ var bircumle;
 	*/
 	
 
-function cumlelereDonustur(/* kodlar buraya */ ){
+function cumlelereDonustur(par1, ayrac){
+	return cumleler.map(kelimeler =>kelimeler.join(ayrac));
 	/* kodlar buraya */
+
 }
 
-
-
+console.log(cumlelereDonustur(cumleler, " "));
 /* GÖREV 2:
 		paragrafOlustur fonksiyonuna aşağıdakileri uygulayın.
 			1. cumleler dizisi fonksiyonun birinci parametresi olarak alınacak
@@ -120,7 +133,11 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
+function paragrafOlustur(cumleler, ornekgorev,gorev1){
+ let yeniDizi= gorev1(cumleler, " ");
+ let paragraf = ornekgorev(yeniDizi[1], yeniDizi[3], yeniDizi[5],yeniDizi[7], yeniDizi[9]);
+ return paragraf;
+
 	/* kodlar buraya */ 
 }
 
@@ -132,7 +149,11 @@ function paragrafOlustur(/* kodlar buraya */ ){
 //3a çözümü
 /* kodlar buraya */
 
+meyveler.pop();
+console.log(meyveler);
 
+meyveler.shift();
+console.log(meyveler);
 
 
 
@@ -142,8 +163,9 @@ function paragrafOlustur(/* kodlar buraya */ ){
 //3b çözümü
 /* kodlar buraya */
 
-
-
+{sebzeler.push("🦔");
+sebzeler.unshift( "🐇");}
+console.log(sebzeler);
 
 
 
@@ -154,14 +176,17 @@ function paragrafOlustur(/* kodlar buraya */ ){
 	//3c çözümü
 /* kodlar buraya */
 
-var manav;
+var manav= meyveler.concat(sebzeler);
+console.log(manav);
 
 
 
 
 
 /* 	GÖREV 4:
-		Yeni kurulmuş bir mesajlaşma startup firması atılan mesajları emojilerle zenginleştirmek istiyor. Bunun için emojiler adında bir nesne tanımlamışlar. Kullanıcının gönderdiği mesaj stringi içinde emojiler nesnesinin anahtarı(index) bulunuyorsa, bu işareti otomatik olarak anahtara ait değerde tanımlanmış emoji ile değiştirecek bir fonksiyon geliştirmek istiyorlar. ÖRNEK: Mesaj içinde ":)" sembolü bulunursa mesajı alan kişi bu sembolü "🙂" olarak görecek. Burdan yola çıkarak emojileriDonustur fonksiyonuna aşağıdakileri uygulayın.
+		Yeni kurulmuş bir mesajlaşma startup firması atılan mesajları emojilerle zenginleştirmek istiyor.
+		 Bunun için emojiler adında bir nesne tanımlamışlar. Kullanıcının gönderdiği mesaj stringi içinde emojiler nesnesinin anahtarı(index) bulunuyorsa, bu işareti otomatik olarak anahtara ait değerde tanımlanmış emoji ile değiştirecek bir fonksiyon geliştirmek istiyorlar.
+		 ÖRNEK: Mesaj içinde ":)" sembolü bulunursa mesajı alan kişi bu sembolü "🙂" olarak görecek. Burdan yola çıkarak emojileriDonustur fonksiyonuna aşağıdakileri uygulayın.
 			1. Atılan mesaj stringi fonksiyonun birinci parametresi olarak alınacak
 			2. emojiler nesnesi fonksiyonun ikinci parametresi olarak alınacak
 			3. mesaj stringi emoji nesnesinde tanımlı olan tüm sembolleri istenilen değere dönüştürecek (.replaceAll metodu kullanılacak)
@@ -170,10 +195,20 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
+function emojileriDonustur(messageStr, emojiObj){
+	let symbol = Object.keys(emojiObj);
+	let emojiValue = Object.values(emojiObj);
+	
+		for (let i = 0; i < symbol.length; i++) {
+			messageStr = messageStr.replaceAll(symbol[i].toUpperCase(), emojiValue[i]);
+			messageStr = messageStr.replaceAll(symbol[i].toLowerCase(), emojiValue[i]);
+		}
+				return messageStr;
+	}
+	console.log(emojileriDonustur("Hello World! :p Bugün ödevi erken bitirdiğim için çok mutluyum :D ama kod yazmaya, öğrenmeye devam :O Teşekkürler Workintech ! <3",emojiler));
 /* kodlar buraya */
 
-}
+
 
 
 
